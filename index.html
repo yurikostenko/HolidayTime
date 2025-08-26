@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=PT%20Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Головна</title>
+</head>
+
+<body>
+
+	<div class="wrapper">
+
+		<header class="header header--margin">
+			<div class="header__container">
+				<div class="header__logo">
+					<img class="header__image" src="img/logo.svg" alt="" aria-hidden="true">
+				</div>
+				<div class="header__body">
+					<nav class="header__menu">
+						<ul class="header__list">
+							<li class="header__item"><a class="header__link" href="index.html">ГОЛОВНА</a></li>
+							<li class="header__item"><a class="header__link" href="about.html">ПРО НАС</a></li>
+							<li class="header__item"><a class="header__link" href="reserve.html">ЗАБРОНЮВАТИ</a></li>
+							<li class="header__item"><a class="header__link" href="contacts.html">КОНТАКТИ</a></li>
+							<li class="header__item"><a class="header__link header__link--big" href="office.html">ОСОБИСТИЙ
+									КАБІНЕТ</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="header__lang">
+						<div class="header__globe">
+							<img class="header__picture" src="img/fluent-globe.svg" alt="Globe">
+						</div>
+						<select name="form[lang]" class="header__select">
+							<option value="ua">UA</option>
+							<option value="de">DE</option>
+							<option value="en">EN</option>
+						</select>
+					</div>
+				</div>
+				<button class="header__burger">
+					<span></span>
+				</button>
+			</div>
+		</header>
+
+		<main class="page">
+
+			<section class="page__hero hero">
+				<div class="hero__container">
+					<div class="hero__body">
+						<h1 class="hero__title">HolidayTime</h1>
+						<p>Автентичний відпочинок серед українського колориту!</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="page__destinations destinations">
+				<div class="destinations__container">
+
+					<div class="destinations__slider slider-destinations swiper">
+						<!-- Additional required wrapper -->
+						<div class="slider-destinations__wrapper swiper-wrapper">
+							<!-- Slides -->
+							<div class="slider-destinations__slide swiper-slide">
+								<div class="item-destinations">
+									<div class="item-destinations__body">
+										<h4 class="item-destinations__text">
+											<span>Полонини Карпат, у селі Орів посеред гір розташувався
+												затишний куточок для незабутніх вражень. Справжні українські гори, власноручне
+												сироваріння на
+												полонині, водоспади та вікові дерева чекають на Вас.
+											</span>
+											<a class="item-destinations__link" href="#">Переглянути</a>
+										</h4>
+									</div>
+								</div>
+							</div>
+							<div class="slider-destinations__slide swiper-slide">
+								<div class="item-destinations">
+									<div class="item-destinations__body">
+										<h4 class="item-destinations__text">
+											<span>Полонини Карпат, у селі Орів посеред гір розташувався
+												затишний куточок для незабутніх вражень. Справжні українські гори, власноручне
+												сироваріння на
+												полонині, водоспади та вікові дерева чекають на Вас.
+											</span>
+											<a class="item-destinations__link" href="#">Переглянути</a>
+										</h4>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="swiper-slide">Slide 3</div> -->
+							...
+						</div>
+						<!-- If we need pagination -->
+						<div class="slider-destinations__pagination swiper-pagination"></div>
+
+						<!-- If we need navigation buttons -->
+						<div class="slider-destinations__button-prev swiper-button-prev"></div>
+						<div class="slider-destinations__button-next swiper-button-next"></div>
+
+					</div>
+
+				</div>
+			</section>
+
+			<section class="page__blurb blurb">
+				<div class="blurb__container">
+					<div class="blurb__body">
+						<div class="blurb__capture">
+							<img class="blurb__image" src="img/image-4.webp"
+								alt="Чоловік і жінка біля вікна, дивляться на зелене поле">
+						</div>
+						<h4 class="blurb__title">Активний відпочинок у нетипових лоцаціях. Незаймана природа та місцевий
+							колорит
+							подарують Вам незабутні враження.
+						</h4>
+					</div>
+				</div>
+			</section>
+
+			<section class="page__feedback feedback">
+				<div class="feedback__container">
+					<div class="feedback__body">
+						<h2 class="feedback__title">Зворотній зв’язок</h2>
+						<form class="feedback__form form" action="#">
+							<div class="form__block">
+								<label class="form__lable">Ім’я
+									<input class="form__input" placeholder="Введіть ім’я" required type="text">
+								</label>
+								<label class="form__lable">Номер телефону
+									<input class="form__input" placeholder="Введіть номер телефону" required name="phone"
+										type="tel">
+								</label>
+							</div>
+							<button class="form__button" type="submit">Запросити виклик</button>
+						</form>
+					</div>
+				</div>
+			</section>
+
+			<a href="#" class="page__up up">
+				<img src="img/arrow-up.svg" alt="arrow-up">
+			</a>
+
+		</main>
+
+
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__content">© 2021 HolidayTime. All rights reserved.</div>
+			</div>
+		</footer>
+
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script src="js/script.js"></script>
+
+</body>
+
+</html>

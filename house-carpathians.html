@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=PT%20Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Будинок Карпати</title>
+</head>
+
+<body>
+
+   <div class="wrapper">
+
+      <header class="header">
+         <div class="header__container">
+            <div class="header__logo">
+               <img class="header__image" src="img/logo.svg" alt="" aria-hidden="true">
+            </div>
+            <div class="header__body">
+               <nav class="header__menu">
+                  <ul class="header__list">
+                     <li class="header__item"><a class="header__link" href="index.html">ГОЛОВНА</a></li>
+                     <li class="header__item"><a class="header__link" href="about.html">ПРО НАС</a></li>
+                     <li class="header__item"><a class="header__link" href="reserve.html">ЗАБРОНЮВАТИ</a></li>
+                     <li class="header__item"><a class="header__link" href="contacts.html">КОНТАКТИ</a></li>
+                     <li class="header__item"><a class="header__link header__link--big" href="office.html">ОСОБИСТИЙ
+                           КАБІНЕТ</a>
+                     </li>
+                  </ul>
+               </nav>
+               <div class="header__lang">
+                  <div class="header__globe">
+                     <img class="header__picture" src="img/fluent-globe.svg" alt="Globe">
+                  </div>
+                  <select name="form[lang]" class="header__select">
+                     <option value="ua">UA</option>
+                     <option value="de">DE</option>
+                     <option value="en">EN</option>
+                  </select>
+               </div>
+            </div>
+            <button class="header__burger">
+               <span></span>
+            </button>
+         </div>
+      </header>
+
+      <main class="carpathians">
+
+         <section class="carpathians__heading heading">
+            <div class="heading__container heading__container--middle">
+               <h1 class="heading__title">Бронювання будиночка в Карпатах</h1>
+            </div>
+         </section>
+
+         <div class="carpathians__back back">
+            <div class="back__container">
+               <a class="back__button" href="reserve.html">Назад</a>
+            </div>
+         </div>
+
+         <div class="carpathians__gallery gallery">
+            <div class="gallery__container gallery__container--middle">
+               <div class="gallery__parent parent">
+                  <div class="parent__cell-1">
+                     <img class="parent__image" src="img/oriv-house.jpg" alt="">
+                  </div>
+                  <div class="parent__cell-2">
+                     <img class="parent__image" src="img/oriv-house_1.jpg" alt="">
+                  </div>
+                  <div class="parent__cell-3">
+                     <p>Затишні дерев’яні будиночки, які заховались на окраїні лісу, зустрічатимуть Вас чудовим
+                        краєвидом на ранкові полонини.</p>
+                     <p>
+                        Ви можете обрати кількість кімнат та місце, яке буде ідеальним для Вас. Територія, на якій
+                        базуються будиночки, підійде як і для великих компаній, яким потрібно бути поряд у декількох
+                        будинках, так і для пар, які хочуть бути на одинці.
+                     </p>
+                  </div>
+                  <div class="parent__cell-4">
+                     <img class="parent__image" src="img/oriv-house_2.jpg" alt="">
+                  </div>
+                  <div class="parent__cell-5">
+                     <img class="parent__image" src="img/oriv-house_3.jpg" alt="">
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <section class="carpathians__places places">
+            <div class="places__container places__container--middle">
+               <h2 class="places__title">Наявність місць</h2>
+
+               <form class="places__form" action="#">
+                  <div class="places__info">
+                     <p>Коли б Ви хотіли зупинись в помешканні Полонини Карпат?</p>
+                     <div class="places__date date">
+                        <label class="date__label">Дата заїзду
+                           <input class="date__input" placeholder="Дата заїзду" required type="text">
+                        </label>
+                        <label class="date__label">Дата виїзду
+                           <input class="date__input" placeholder="Дата виїзду" required type="text">
+                        </label>
+                     </div>
+                     <div class="places__quantity quantity">
+                        <label class="quantity__label">Номери
+                           <span class="quantity__wrapper">
+                              <input class="quantity__input" value="1" min="1" required type="number">
+                              <button type="button" class="quantity__btn quantity__btn--up"></button>
+                              <button type="button" class="quantity__btn quantity__btn--down"></button>
+                           </span>
+                        </label>
+                        <label class="quantity__label">Дорослі
+                           <span class="quantity__wrapper">
+                              <input class="quantity__input" value="2" min="1" required type="number">
+                              <button type="button" class="quantity__btn quantity__btn--up"></button>
+                              <button type="button" class="quantity__btn quantity__btn--down"></button>
+                           </span>
+                        </label>
+                        <label class="quantity__label">Діти
+                           <span class="quantity__wrapper">
+                              <input class="quantity__input" value="0" min="0" required type="number">
+                              <button type="button" class="quantity__btn quantity__btn--up"></button>
+                              <button type="button" class="quantity__btn quantity__btn--down"></button>
+                           </span>
+                        </label>
+                     </div>
+                  </div>
+                  <div class="places__exempt">
+                     <button class="places__button" type="submit">Перевірити наявність<br> вільних місць</button>
+                  </div>
+               </form>
+
+               <div class="places__description description">
+                  <div class="description__header header-description">
+                     <div class="header-description__admit">Вміщує</div>
+                     <div class="header-description__placement">Тип розміщення</div>
+                     <div class="header-description__price">Ціна</div>
+                  </div>
+                  <div class="description__body body-description">
+                     <div class="body-description__admit">
+                        <img src="/img/person.svg" alt="Person">
+                        <img src="/img/person.svg" alt="Person">
+                     </div>
+                     <div class="body-description__placement">
+                        <span>Двомісний номер</span>
+                        <span> 1 широке двоспальне ліжко</span>
+                     </div>
+                     <div class="body-description__price">
+                        <button class="body-description__button" type="button">Показати ціни</button>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </section>
+
+         <a href="#" class="carpathians__up up up--mod">
+            <img src="img/arrow-up.svg" alt="arrow-up">
+         </a>
+
+      </main>
+
+
+      <footer class="footer">
+         <div class="footer__container">
+            <div class="footer__content">© 2021 HolidayTime. All rights reserved.</div>
+         </div>
+      </footer>
+
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/uk.js"></script>
+   <script src="js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+@use "sass:math";
+@use "_mixins.scss" as *;
+
+/* ===== header ===== */
+
+.header {
+   background-color: #202846;
+   color: #fff;
+   font-weight: 700;
+   line-height: 1.5;
+   @include adaptiveValue(font-size, 24, 18, 0, 1280, 992);
+
+   // .header--margin
+   &--margin {
+      @include adaptiveValue(margin-bottom, 53, 30);
+   }
+   // .header__container
+   &__container {
+      display: flex;
+      gap: toRem(20);
+      justify-content: space-between;
+      align-items: center;
+      padding-block: toRem(10);
+   }
+   // .header__logo
+   &__logo {
+      aspect-ratio: 178.451 / 70;
+      flex-shrink: 0;
+      border-radius: toRem(167);
+      overflow: hidden;
+      @media (max-width: toEm($mobileSmall)) {
+         flex-shrink: 1;
+      }
+   }
+   // .header__image
+   &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+   //.header__body
+   &__body {
+      display: flex;
+      align-items: center;
+      @include adaptiveValue(gap, 54, 20, 0, 1280, 992);
+   }
+   // .header__menu
+   &__menu {
+      @media (max-width: toEm($tablet)) {
+         position: fixed;
+         z-index: 5;
+         top: toRem(95);
+         right: -100%;
+         width: 100%;
+         height: calc(100vh - toRem(95));
+         background-color: #344274;
+         padding: toRem(60) toRem(70) toRem(30);
+         overflow-y: auto;
+
+         transition: right 0.5s ease;
+      }
+      @media (max-width: toEm($tablet)) {
+         top: toRem(87);
+         height: calc(100vh - toRem(87));
+      }
+   }
+   // .header__menu active
+   &__menu.active {
+      right: 0;
+   }
+   // .header__list
+   &__list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      @include adaptiveValue(gap, 54, 20, 0, 1280, 992);
+      @media (max-width: toEm($tablet)) {
+         flex-direction: column;
+         gap: toRem(40);
+         align-items: flex-end;
+         font-size: toRem(24);
+      }
+   }
+   // .header__item
+   &__item {
+      // .header__item--lang
+      &--lang {
+         display: flex;
+         align-items: center;
+      }
+   }
+   // .header__link
+   &__link {
+      position: relative;
+      @include adaptiveValue(max-width, 170, 120, 0, 1280, 992);
+      text-align: center;
+      @media (max-width: toEm($tablet)) {
+         text-align: end;
+         max-width: toRem(170);
+      }
+      &::after {
+         content: "";
+         position: absolute;
+         @include adaptiveValue(right, -23, -10, 0, 1280, 992);
+         @include adaptiveValue(top, -10, -5, 0, 1280, 992);
+         width: toRem(2);
+         @include adaptiveValue(height, 59, 45, 0, 1280, 992);
+         background-color: #fff;
+         @media (max-width: toEm($tablet)) {
+            display: none;
+         }
+      }
+      &--big::after {
+         top: toRem(3);
+      }
+
+      &::before {
+         content: "";
+         position: absolute;
+         left: 0;
+         bottom: toRem(-2);
+         width: 100%;
+         height: toRem(2);
+         background-color: #fff;
+         transform: scaleX(0);
+         transition: transform 0.3s;
+      }
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover::before {
+            transform: scaleX(1);
+         }
+      }
+   }
+   // .header__lang
+   &__lang {
+      display: flex;
+      align-items: center;
+   }
+   // .header__globe
+   &__globe {
+      width: toRem(75);
+      aspect-ratio: 1;
+      flex-shrink: 0;
+      overflow: hidden;
+      @media (max-width: toEm($mobileSmall)) {
+         display: none;
+      }
+   }
+   // .header__picture
+   &__picture {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 1.5s;
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            transform: rotate(180deg);
+         }
+      }
+   }
+   // .header__select
+   &__select {
+      background-color: #202846;
+      color: #fff;
+      @include adaptiveValue(font-size, 28, 20, 0, 1280, 992);
+      border: none;
+      appearance: none;
+      padding: 0 toRem(10);
+      transition: color 0.3s ease;
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            color: #afafaf;
+         }
+      }
+   }
+
+   &__burger {
+      display: none;
+      position: relative;
+      width: toRem(30);
+      height: toRem(20);
+      z-index: 5;
+
+      span,
+      &::before,
+      &::after {
+         content: "";
+         position: absolute;
+         left: 0;
+         height: toRem(2);
+         width: 100%;
+         background-color: #fff;
+         transition: 0.3s ease;
+      }
+
+      span {
+         top: 50%;
+         transform: translateY(-50%);
+      }
+      &::before {
+         top: 0;
+      }
+      &::after {
+         bottom: 0;
+      }
+      @media (max-width: toEm($tablet)) {
+         display: block;
+      }
+
+      &.active span {
+         transform: scale(0);
+      }
+      &.active::before {
+         top: 50%;
+         transform: translateY(-50%) rotate(45deg);
+      }
+      &.active::after {
+         top: 50%;
+         bottom: auto;
+         transform: translateY(-50%) rotate(-45deg);
+      }
+   }
+}
+.lock {
+   overflow: hidden;
+}

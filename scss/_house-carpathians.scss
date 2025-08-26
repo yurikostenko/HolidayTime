@@ -1,0 +1,395 @@
+@use "sass:math";
+@use "_mixins.scss" as *;
+
+.carpathians {
+   position: relative;
+   &__heading {
+      @include adaptiveValue(margin-block-end, 40, 15);
+   }
+   // .carpathians__button
+   &__back {
+      @include adaptiveValue(margin-block-end, 27, 15);
+   }
+   // .carpathians__gallery
+   &__gallery {
+      @include adaptiveValue(margin-block-end, 32, 15);
+   }
+   &__places {
+      margin-block-end: toRem(77);
+      @media (max-width: toEm(1820)) {
+         margin-block-end: toRem(20);
+      }
+   }
+}
+
+/* ===== back ===== */
+
+.back {
+   // .back__button
+   &__button {
+      background-color: #202846;
+      color: #fff;
+      @include adaptiveValue(font-size, 24, 16);
+      @include adaptiveValue(padding-inline, 30, 20);
+      @include adaptiveValue(padding-block, 15, 10);
+      border-radius: toRem(100);
+      display: inline-flex;
+      @include adaptiveValue(gap, 16, 10);
+      align-items: center;
+      transition: background-color 0.3s;
+      &::before {
+         content: "";
+         background: url(../img/arrow.svg) center / contain no-repeat;
+         @include adaptiveValue(width, 34, 20);
+         aspect-ratio: 34 / 20;
+         rotate: 180deg;
+      }
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            background-color: #687bc0;
+         }
+      }
+   }
+}
+
+/* ===== gallery =====*/
+
+.parent {
+   display: grid;
+   grid-template-columns: repeat(11, 1fr);
+   gap: 8px;
+   grid-template-areas:
+      "one one one one one three three three three three three"
+      "one one one one one three three three three three three"
+      "one one one one one three three three three three three"
+      "one one one one one three three three three three three"
+      "two two two two two three three three three three three"
+      "two two two two two four four four five five five"
+      "two two two two two four four four five five five"
+      "two two two two two four four four five five five";
+
+   @media (max-width: toEm($mobile)) {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+         "one one one one one one"
+         "two two two two two two"
+         "three three three three three three"
+         "four four four five five five";
+   }
+
+   @media (max-width: toEm($mobileSmall)) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+         "one"
+         "two"
+         "three"
+         "four"
+         "five";
+   }
+   // .parent__cell-1
+   &__cell-1 {
+      grid-area: one;
+   }
+   // .parent__image
+   &__image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+   // .parent__cell-2
+   &__cell-2 {
+      grid-area: two;
+   }
+   // .parent__cell-3
+   &__cell-3 {
+      grid-area: three;
+      align-content: center;
+      color: #000;
+      background: #c7c7c7;
+      @include adaptiveValue(font-size, 29, 14);
+      @include adaptiveValue(padding-inline, 92, 15);
+      padding-block: toRem(15);
+      > * {
+         padding-block-end: toRem(15);
+      }
+      > *:last-child {
+         padding-block-end: 0;
+      }
+   }
+   // .parent__cell-4
+   &__cell-4 {
+      grid-area: four;
+   }
+   // .parent__cell-5
+   &__cell-5 {
+      grid-area: five;
+   }
+}
+
+/* ===== places =====*/
+
+.places {
+   // .places__title
+   &__title {
+      @include adaptiveValue(font-size, 48, 20);
+      font-weight: 700;
+      text-align: center;
+      @include adaptiveValue(margin-block-end, 32, 15);
+   }
+   // .places__form
+   &__form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: toRem(15);
+      align-items: center;
+      padding-block: toRem(27);
+      background-color: #ceced8;
+      color: #000;
+      @include adaptiveValue(font-size, 29, 16);
+      @include adaptiveValue(margin-block-end, 50, 15);
+   }
+   // .places__info
+   &__info {
+      flex-grow: 1;
+      @include adaptiveValue(padding-inline, 44, 15);
+      p {
+         @include adaptiveValue(margin-block-end, 24, 15);
+         line-height: 1.2;
+      }
+   }
+   // .places__date
+   &__date {
+      margin-block-end: toRem(30);
+   }
+   // .places__exempt
+   &__exempt {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+   }
+   // .places__buuton
+   &__button {
+      background-color: #2b365c;
+      color: #fff;
+      @include adaptiveValue(padding-block, 18, 10);
+      @include adaptiveValue(padding-inline, 37, 15);
+      transition: background-color 0.3s;
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            background-color: #687bc0;
+         }
+      }
+   }
+}
+.date {
+   display: flex;
+   flex-wrap: wrap;
+   @include adaptiveValue(column-gap, 100, 20);
+   row-gap: toRem(15);
+
+   // .date__label
+   &__label {
+      position: relative;
+      flex-basis: toRem(350);
+      flex-shrink: 0;
+      @media (max-width: toEm(420)) {
+         flex-shrink: 1;
+      }
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: 50%;
+         left: 0;
+         margin-inline-start: toRem(10);
+         transform: translateY(-5%);
+         background: url(../img/icons_calendar.svg) center / contain no-repeat;
+         @include adaptiveValue(width, 44, 28);
+         aspect-ratio: 1;
+         pointer-events: none;
+      }
+      &::after {
+         content: "";
+         position: absolute;
+         top: 50%;
+         right: 0;
+         margin-inline-end: toRem(10);
+         transform: translateY(10%);
+         background: url(../img/delta.svg) center / contain no-repeat;
+         @include adaptiveValue(width, 30, 20);
+         aspect-ratio: 1;
+         pointer-events: none;
+      }
+   }
+   // .date__input
+   &__input {
+      display: flex;
+      padding-block: toRem(10);
+      @include adaptiveValue(padding-inline, 74, 50);
+      border: toRem(2) solid #90a4ae;
+      background: #fff;
+      margin-block-start: toRem(8);
+   }
+
+   @media (max-width: toEm(520)) {
+      flex-wrap: wrap;
+   }
+}
+.quantity {
+   display: flex;
+   @include adaptiveValue(gap, 48, 15);
+
+   &__wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      border: toRem(2) solid #90a4ae;
+      background: #fff;
+      @include adaptiveValue(font-size, 32, 18);
+      color: #000;
+      @include adaptiveValue(max-width, 61, 44);
+      aspect-ratio: 1;
+
+      @media (max-width: toEm(400)) {
+         margin-block-start: toRem(10);
+      }
+   }
+
+   // .quantity__input
+   &__input {
+      @include adaptiveValue(padding-inline-start, 15, 10);
+      background: #fff;
+
+      appearance: none;
+      -moz-appearance: textfield;
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+         -webkit-appearance: none;
+         margin: 0;
+      }
+
+      &::placeholder {
+         @include adaptiveValue(font-size, 32, 18);
+         color: #000;
+      }
+   }
+   &__btn {
+      // .quantity__btn--up
+      &--up::before {
+         content: "";
+         background: url(../img/arrow-up1.svg) center / contain no-repeat;
+         position: absolute;
+         left: 65%;
+         top: 16.4%;
+         @include adaptiveValue(width, 12, 8.5);
+         aspect-ratio: 12 / 18;
+         cursor: pointer;
+      }
+      // .quantity__btn--down
+      &--down {
+         background: url(../img/arrow-down.svg) center / contain no-repeat;
+         position: absolute;
+         left: 65%;
+         bottom: 16.4%;
+         @include adaptiveValue(width, 12, 8.5);
+         aspect-ratio: 12 / 18;
+         cursor: pointer;
+      }
+   }
+}
+@media (max-width: toEm(645)) and (min-width: toEm(520)) {
+   .flatpickr-calendar {
+      left: toRem(15) !important;
+   }
+}
+
+.description {
+   @include adaptiveValue(font-size, 32, 14);
+   font-style: italic;
+}
+.header-description {
+   display: flex;
+   background-color: #4c536b;
+   color: #fff;
+   @include adaptiveValue(padding-block, 22, 10);
+   // .header-description__admit
+   &__admit {
+      flex-basis: 22%;
+      text-align: center;
+      padding-inline: toRem(5);
+      border-right: toRem(3) solid #8f98b9;
+   }
+   // .header-description__placement
+   &__placement {
+      flex-basis: 56%;
+      @include adaptiveValue(padding-inline-start, 45, 15);
+      border-right: toRem(3) solid #8f98b9;
+   }
+   // .header-description__price
+   &__price {
+      flex-basis: 22%;
+      @include adaptiveValue(padding-inline-start, 50, 15);
+   }
+}
+.body-description {
+   display: flex;
+   gap: toRem(10);
+   align-items: center;
+   color: #000;
+   background-color: #cfcfd1;
+   // .body-description__admit
+   &__admit {
+      flex-basis: 22%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      img {
+         aspect-ratio: 42 / 44;
+         @include adaptiveValue(width, 42, 18);
+      }
+   }
+   // .body-description__placement
+   &__placement {
+      flex-basis: 56%;
+      display: flex;
+      @include adaptiveValue(gap, 20, 5);
+      flex-direction: column;
+      @include adaptiveValue(padding-inline-start, 45, 15);
+      @include adaptiveValue(padding-block, 48, 15);
+      line-height: 1.375;
+      span + span {
+         display: flex;
+         flex-wrap: wrap;
+         @include adaptiveValue(gap, 23, 8);
+      }
+      span + span::after {
+         content: "";
+         background: url(../img/bed.svg) center / contain no-repeat;
+         aspect-ratio: 102 / 39;
+         @include adaptiveValue(width, 102, 50);
+      }
+   }
+   // .body-description__price
+   &__price {
+      flex-basis: 22%;
+      padding: toRem(10);
+      text-align: center;
+   }
+   // .body-description__button
+   &__button {
+      font-style: italic;
+      line-height: 1.25;
+      background-color: #687bc0;
+      color: #fff;
+      @include adaptiveValue(padding-block, 15, 5);
+      @include adaptiveValue(padding-inline, 50, 5);
+      transition: background-color 0.3s;
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            background-color: #2b365c;
+         }
+      }
+   }
+}

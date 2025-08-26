@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=PT%20Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="css/style.css">
+   <title>Забронювати</title>
+</head>
+
+<body>
+
+   <div class="wrapper">
+
+      <header class="header">
+         <div class="header__container">
+            <div class="header__logo">
+               <img class="header__image" src="img/logo.svg" alt="" aria-hidden="true">
+            </div>
+            <div class="header__body">
+               <nav class="header__menu">
+                  <ul class="header__list">
+                     <li class="header__item"><a class="header__link" href="index.html">ГОЛОВНА</a></li>
+                     <li class="header__item"><a class="header__link" href="about.html">ПРО НАС</a></li>
+                     <li class="header__item"><a class="header__link" href="reserve.html">ЗАБРОНЮВАТИ</a></li>
+                     <li class="header__item"><a class="header__link" href="contacts.html">КОНТАКТИ</a></li>
+                     <li class="header__item"><a class="header__link header__link--big" href="office.html">ОСОБИСТИЙ
+                           КАБІНЕТ</a>
+                     </li>
+                  </ul>
+               </nav>
+               <div class="header__lang">
+                  <div class="header__globe">
+                     <img class="header__picture" src="img/fluent-globe.svg" alt="Globe">
+                  </div>
+                  <select name="form[lang]" class="header__select">
+                     <option value="ua">UA</option>
+                     <option value="de">DE</option>
+                     <option value="en">EN</option>
+                  </select>
+               </div>
+            </div>
+            <button class="header__burger">
+               <span></span>
+            </button>
+         </div>
+      </header>
+
+      <main class="reserve">
+
+         <section class="reserve__heading heading">
+            <div class="heading__container">
+               <h1 class="heading__title">Забронювати будиночок</h1>
+            </div>
+         </section>
+
+         <section class="reserve__choose choose">
+            <div class="choose__container">
+               <div class="choose__body">
+                  <h2 class="choose__title">Оберіть місцерозташування</h2>
+                  <ul class="choose__list">
+                     <li><a class="choose__region" href="#">Бакота</a></li>
+                     <li><a class="choose__region" href="#">Карпати</a></li>
+                     <li><a class="choose__region" href="#">Київ</a></li>
+                     <li><a class="choose__region" href="#">Одеська область</a></li>
+                  </ul>
+               </div>
+            </div>
+         </section>
+
+         <div class="reserve__location location">
+            <div class="location__container">
+               <div class="location__items">
+
+                  <article class="location__item">
+                     <a class="location__capture" href="#">
+                        <img class="location__image" src="img/location/bakota-2x.webp"
+                           alt="Великий будинок сидить на пагорбі, з видом на безтурботну річку внизу.">
+                     </a>
+                     <div class="location__body">
+                        <div class="location__header">
+                           <h2 class="location__title"><a href="#">Незвідана Бакота</a></h2>
+                           <button class="location__star" type="button" aria-label="Додати в обране"></button>
+                        </div>
+                        <p>У Хмельницькій області розташований загублений край -
+                           Бакота. Мальовничий каньйон з давньою історією захоплює
+                           своїми просторами та незвичною атмосферою. Бджільництво,
+                           свіжий мед із польових трав, дотик до природи.</p>
+                        <a class="location__link" href="#">Детальніше</a>
+                     </div>
+                  </article>
+
+                  <article class="location__item">
+                     <a class="location__capture" href="house-carpathians.html">
+                        <img class="location__image" src="img/location/oriv-2x.webp"
+                           alt="Дерев'яний будинок, оточений деревами, розташований у лісі.">
+                     </a>
+                     <div class="location__body">
+                        <div class="location__header">
+                           <h2 class="location__title"><a href="house-carpathians.html">Полонини Карпат</a></h2>
+                           <button class="location__star" type="button" aria-label="Додати в обране"></button>
+                        </div>
+                        <p>Полонини Карпат, у селі Орів посеред гір
+                           розташувався затишний куточок для незабутніх
+                           вражень. Справжні українські гори, власноручне
+                           сироваріння на полонині, водоспади та
+                           вікові дерева чекають на Вас.</p>
+                        <a class="location__link" href="house-carpathians.html">Детальніше</a>
+                     </div>
+                  </article>
+
+                  <article class="location__item">
+                     <a class="location__capture" href="#">
+                        <img class="location__image" src="img/location/kyiv-2x.webp"
+                           alt="Великий дерев'яний будинок з просторою верандою.">
+                     </a>
+                     <div class="location__body">
+                        <div class="location__header">
+                           <h2 class="location__title"><a href="#">Автентична Київщина</a></h2>
+                           <button class="location__star" type="button" aria-label="Додати в обране"></button>
+                        </div>
+                        <p>Неподалік центра Києва розташувалось автентичне українське село на території однойменного
+                           села Пирогово. Дерев’яні млини, запашний хліб, приготовлений своїми руками, українські пісні
+                           та багато іншого чекає на вас уже зараз.</p>
+                        <a class="location__link" href="#">Детальніше</a>
+                     </div>
+                  </article>
+
+                  <article class="location__item">
+                     <a class="location__capture" href="#">
+                        <img class="location__image" src="img/location/odessa-2x.webp"
+                           alt="Будівля, в якій розташований готель, з сучасним дизайном та великими вікнами.">
+                     </a>
+                     <div class="location__body">
+                        <div class="location__header">
+                           <h2 class="location__title"><a href="#">Нетипова Одещина</a></h2>
+                           <button class="location__star" type="button" aria-label="Додати в обране"></button>
+                        </div>
+                        <p>В Одеській області знаходиться мальовниче містечко Вилкове.
+                           Його ще називають «українською Венецією». Вилкове - це містечко
+                           на воді, весь в каналах. Розташоване в місці, де зустрічаються річка
+                           Дунай і Чорне море. Люди пересуваються переважно човнами.
+                           Нетипове українське село не залишить Вас без вражень.</p>
+                        <a class="location__link" href="#">Детальніше</a>
+                     </div>
+                  </article>
+
+                  <a href="#" class="location__up up up--mod">
+                     <img src="img/arrow-up.svg" alt="arrow-up">
+                  </a>
+
+               </div>
+            </div>
+         </div>
+
+      </main>
+
+
+      <footer class="footer">
+         <div class="footer__container">
+            <div class="footer__content">© 2021 HolidayTime. All rights reserved.</div>
+         </div>
+      </footer>
+
+   </div>
+
+   <script src="js/script.js"></script>
+
+</body>
+
+</html>

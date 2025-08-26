@@ -1,0 +1,66 @@
+@use "sass:math";
+@use "_mixins.scss" as *;
+
+.contacts {
+   // .contacts__body
+   &__body {
+      display: flex;
+      flex-direction: column;
+      @include adaptiveValue(gap, 52, 15);
+      padding-block: toRem(63);
+      @include adaptiveValue(padding-block, 63, 20);
+      color: #000;
+      text-align: center;
+      @include adaptiveValue(font-size, 30, 16);
+      line-height: 1.2;
+   }
+   // .contacts__row1
+   &__row1 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: toRem(15);
+      justify-content: space-between;
+   }
+   // .contacts__item
+   &__item {
+      span {
+         display: block;
+      }
+      &--pt {
+         padding-block-start: toRem(24);
+         @include adaptiveValue(padding-block-start, 24, 0);
+      }
+   }
+   // .contacts__title
+   &__title {
+      @include adaptiveValue(font-size, 32, 18);
+      text-align: left;
+      @include adaptiveValue(padding-inline-start, 14, 5);
+      border-bottom: toRem(3) solid #202846;
+   }
+   // .contacts__row2
+   &__row2 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: toRem(15);
+      justify-content: space-between;
+   }
+   // .contacts__map
+   &__map {
+      position: relative;
+      max-width: toRem(577);
+      width: 100%;
+      @include adaptiveValue(border-radius, 40, 15);
+      outline: toRem(3) solid rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      aspect-ratio: 577 /335;
+
+      iframe {
+         position: absolute;
+         inset: 0;
+         width: 100%;
+         height: 100%;
+         border: 0;
+      }
+   }
+}

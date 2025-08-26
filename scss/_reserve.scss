@@ -1,0 +1,267 @@
+@use "sass:math";
+@use "_mixins.scss" as *;
+
+/* ===== reserve ===== */
+
+.reserve {
+   position: relative;
+   // .reserve__heading
+   &__heading {
+      @include adaptiveValue(margin-bottom, 56, 20);
+   }
+   // .reserve__choose
+   &__choose {
+      @include adaptiveValue(margin-bottom, 56, 20);
+   }
+   // .reserve__location
+   &__location {
+      margin-bottom: toRem(87);
+      @media (max-width: toEm(1820)) {
+         margin-bottom: 0;
+      }
+   }
+}
+.heading {
+   background: #c6c6dc;
+   @include adaptiveValue(padding-block, 46, 15);
+   // .heading__title
+   &__title {
+      @include adaptiveValue(font-size, 48, 24);
+      font-style: italic;
+   }
+}
+
+/* ===== choose ===== */
+
+.choose {
+   // .choose__title
+   &__title {
+      position: relative;
+      cursor: pointer;
+      background-color: #e8e8e8;
+      color: rgba(0, 0, 0, 0.61);
+      @include adaptiveValue(font-size, 28, 18);
+      @include adaptiveValue(padding-block, 18, 12);
+      text-align: center;
+      gap: toRem(10);
+      transition: color 0.3s ease;
+
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            color: rgba(79, 79, 79, 0.61);
+            &::after {
+               transform: translateY(-30%);
+            }
+         }
+      }
+      &::after {
+         content: "";
+         position: absolute;
+         @include adaptiveValue(right, 14, 10);
+         top: 50%;
+         transform: translateY(-50%);
+         background: url(../img/delta.svg) no-repeat center/contain;
+         @include adaptiveValue(width, 34, 20);
+         aspect-ratio: 1;
+         transition: transform 0.3s;
+         transform-origin: center;
+      }
+   }
+   // .choose__list
+   &__list {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition:
+         max-height 0.4s ease,
+         opacity 0.4s ease;
+      text-align: center;
+      background-color: rgba(163, 165, 169, 0.97);
+
+      li:not(:last-child) .choose__region::after {
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 50%;
+         transform: translateX(-50%);
+         width: 97%;
+         height: toRem(3);
+         background: linear-gradient(
+            90deg,
+            #a0a3a6 0%,
+            rgba(192, 192, 192, 0) 0%,
+            rgba(219, 219, 221, 0.08) 0%,
+            #c0c0c0 51.04%,
+            #a0a3a6 100%
+         );
+      }
+   }
+   &__region {
+      padding-block: toRem(7.5);
+      width: 100%;
+      color: #292a31;
+      -webkit-text-stroke-width: 0.5px;
+      font-style: italic;
+      @include adaptiveValue(font-size, 32, 20);
+      position: relative;
+      transition: color 0.3s;
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            color: #bfbfbf;
+         }
+      }
+   }
+   &--open {
+      .choose__list {
+         opacity: 1;
+      }
+      .choose__title::after {
+         transform: translateY(-50%) rotate(90deg);
+      }
+   }
+}
+
+/* ===== location ===== */
+
+.location {
+   // .location__items
+   &__items {
+      display: flex;
+      flex-direction: column;
+      @include adaptiveValue(gap, 35, 20);
+   }
+   // .location__item
+   &__item {
+      position: relative;
+      display: flex;
+      row-gap: toRem(15);
+      @include adaptiveValue(column-gap, 102, 30);
+      background-color: #bdbdc6;
+      padding-block-end: toRem(30);
+      @include adaptiveValue(padding-block-start, 30, 15);
+      @include adaptiveValue(padding-inline-start, 103, 15);
+      @include adaptiveValue(padding-inline-end, 87, 15);
+      @media (max-width: toEm(1023.98)) {
+         flex-wrap: wrap;
+      }
+   }
+   // .location__capture
+   &__capture {
+      aspect-ratio: 485 / 244;
+      overflow: hidden;
+      flex-shrink: 0;
+      flex-basis: toRem(485);
+      background-color: #999;
+      @media (max-width: toEm(1023.98)) {
+         flex-grow: 1;
+      }
+      @media (max-width: toEm(610)) {
+         flex-shrink: 1;
+      }
+   }
+   // .location__image
+   &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: scale 0.5s ease;
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            scale: 1.05;
+         }
+      }
+   }
+   // .location__body
+   &__body {
+      display: flex;
+      flex-direction: column;
+      p {
+         @include adaptiveValue(font-size, 22, 16);
+         text-align: center;
+         padding: toRem(15);
+         align-content: center;
+         flex-grow: 1;
+         background-color: #d7d7dd;
+      }
+   }
+   // .location__header
+   &__header {
+      position: relative;
+      display: flex;
+      gap: toRem(15);
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: toRem(10);
+
+      &::after {
+         content: "";
+         position: absolute;
+         left: 0;
+         top: 100%;
+         width: 100%;
+         height: toRem(3);
+         background-color: #fff;
+         @media (max-width: toEm(1023.98)) {
+            width: 80%;
+         }
+      }
+   }
+   // .location__title
+   &__title {
+      color: #353c57;
+      @include adaptiveValue(font-size, 36, 22);
+      font-style: italic;
+      font-weight: 700;
+      line-height: 1.3;
+      transition: color 0.3s ease;
+
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            color: #48487f;
+         }
+      }
+   }
+   // .location__star
+   &__star {
+      background: url(../img/location/star.svg) center/contain no-repeat;
+      aspect-ratio: 1;
+      @include adaptiveValue(width, 46, 25);
+      @include adaptiveValue(margin-right, -60, 0);
+      flex-shrink: 0;
+      padding: 0;
+      background-color: transparent;
+      transition: background-image 0.2s;
+
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
+         }
+      }
+
+      &.active {
+         background-image: url(../img/location/star-gold.svg);
+      }
+   }
+   // .location__link
+   &__link {
+      position: absolute;
+      @include adaptiveValue(right, -48, 0, 0, 2560, 1024);
+      @include adaptiveValue(bottom, 10, -5);
+      @include adaptiveValue(padding-block, 18, 10);
+      @include adaptiveValue(padding-inline, 39, 25);
+      color: #fff;
+      text-align: center;
+      @include adaptiveValue(font-size, 24, 14);
+      background-color: #202846;
+      border-radius: toRem(168);
+      transition: background-color 0.3s ease;
+      @media (max-width: toEm(1023.98)) {
+         right: 0;
+      }
+      @media (any-hover: hover) and (any-pointer: fine) {
+         &:hover {
+            background-color: #48487f;
+         }
+      }
+   }
+}

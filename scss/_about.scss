@@ -1,0 +1,61 @@
+@use "sass:math";
+@use "_mixins.scss" as *;
+
+.about {
+   // .about__heading
+   &__heading {
+      @include adaptiveValue(margin-bottom, 23, 15);
+   }
+   // .about__hero
+   &__hero {
+      @include adaptiveValue(margin-bottom, 23, 15);
+   }
+   // .about__content
+   &__content {
+      @include adaptiveValue(margin-bottom, 28, 15);
+   }
+}
+
+/* ===== hero ===== */
+
+.hero-about {
+   // .hero-about__body
+   &__body {
+      aspect-ratio: 1574 / 227;
+      background: #545454 url(../img/about.webp) center center / cover no-repeat;
+      padding-inline: toRem(15);
+      @include adaptiveValue(padding-block-start, 35, 15);
+      padding-block-end: toRem(15);
+      text-align: center;
+      color: #fff;
+      font-weight: 700;
+      p {
+         @include adaptiveValue(font-size, 36, 20);
+         font-style: italic;
+         line-height: 1.2;
+      }
+   }
+   // .hero-about__title
+   &__title {
+      @include adaptiveValue(font-size, 48, 30);
+      line-height: 1.5;
+   }
+}
+
+/* ===== content ===== */
+
+.content {
+   // .about__text
+   &__text {
+      background: #cbcbcb;
+      @include adaptiveValue(font-size, 30, 16);
+      @include adaptiveValue(padding, 74, 15);
+      > * {
+         margin-bottom: toRem(60);
+         @include adaptiveValue(margin-bottom, 60, 15);
+      }
+      > *:last-child {
+         margin-bottom: 0;
+      }
+   }
+}

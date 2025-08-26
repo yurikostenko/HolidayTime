@@ -1,0 +1,59 @@
+@use "sass:math";
+@use "_reset";
+@use "_mixins.scss" as *;
+// Parts
+@use "_header.scss";
+@use "_footer.scss";
+// Pages
+@use "_home.scss";
+@use "_reserve.scss";
+@use "_about.scss";
+@use "_contacts.scss";
+@use "_office.scss";
+@use "_house-carpathians.scss";
+
+/* ===== Основні стилі ===== */
+
+.wrapper {
+   overflow: clip;
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.wrapper > main {
+   flex-grow: 1;
+}
+
+[class*="__container"] {
+   margin: 0 auto;
+   padding-inline: toRem(math.div($containerPadding, 2));
+   max-width: toRem($containerWidth);
+}
+
+body {
+   font-family: "PT Sans", sans-serif;
+   color: #202846;
+   background: #dcdcdc;
+}
+
+.header__container,
+.back__container {
+   max-width: toRem(1750);
+}
+
+[class*="__container--big"] {
+   max-width: toRem(1604);
+}
+
+[class*="__container--middle"] {
+   max-width: toRem(1520);
+}
+
+.contacts__container {
+   max-width: toRem(1130);
+}
+
+.body-office__container {
+   max-width: toRem(1348);
+}

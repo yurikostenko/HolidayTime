@@ -1,0 +1,21 @@
+@use "sass:math";
+@use "_mixins.scss" as *;
+
+//===== footer =====
+
+.footer {
+   background: #202846;
+   // .footer__container
+   &__container {
+      max-width: toRem(1750);
+   }
+   // .footer__content
+   &__content {
+      color: #eeecf1;
+      @include adaptiveValue(font-size, 36, 16);
+      font-style: italic;
+      padding-block: toRem(22);
+      @include adaptiveValue(padding-block, 22, 10);
+      line-height: 1.278;
+   }
+}
