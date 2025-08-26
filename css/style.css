@@ -2991,6 +2991,7 @@ label {
   -ms-flex-line-pack: center;
       align-content: center;
   color: #000;
+  line-height: 1.2;
   background: #c7c7c7;
   padding-block: 0.9375rem;
 }

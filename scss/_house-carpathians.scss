@@ -107,6 +107,7 @@
       grid-area: three;
       align-content: center;
       color: #000;
+      line-height: 1.2;
       background: #c7c7c7;
       @include adaptiveValue(font-size, 29, 14);
       @include adaptiveValue(padding-inline, 92, 15);
