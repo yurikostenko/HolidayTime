@@ -86,6 +86,69 @@ document.addEventListener('DOMContentLoaded', () => {
       }
    }
 
+   // Стрілки вибору кількості
+   const quantityBlocks = document.querySelectorAll(`.quantity`)
+   if (!quantityBlocks.length) return
+
+   quantityBlocks.forEach(block => {
+      const wrappers = block.querySelectorAll(`.quantity__wrapper`)
+      if (!wrappers.length) return
+
+      wrappers.forEach(wrapper => {
+         const input = wrapper.querySelector(`.quantity__input`)
+         const btnUp = wrapper.querySelector(`.quantity__btn--up`)
+         const btnDown = wrapper.querySelector(`.quantity__btn--down`)
+
+         if (!input || !btnUp || !btnDown) return
+
+         const updateButtons = () => {
+            const value = parseInt(input.value) || 0
+            const min = parseInt(input.min) || 0
+            const max = parseInt(input.max) || Infinity
+
+            btnDown.disabled = value <= min
+            btnUp.disabled = value >= max
+         }
+
+         updateButtons()
+
+         btnUp.addEventListener(`click`, () => {
+            let currentValue = parseInt(input.value) || 0
+            const maxValue = parseInt(input.max) || Infinity
+            if (currentValue < maxValue) {
+               input.value = currentValue + 1
+               updateButtons()
+            }
+         })
+
+         btnDown.addEventListener(`click`, () => {
+            let currentValue = parseInt(input.value) || 0
+            const minValue = parseInt(input.min) || 0
+            if (currentValue > minValue) {
+               input.value = currentValue - 1
+               updateButtons()
+            }
+         })
+
+         // Заборона введення двозначних чисел
+         input.addEventListener(`input`, () => {
+            let value = input.value.replace(/\D/g, ``)
+            if (value.length > 1) {
+               value = value[0]
+            }
+            input.value = value
+            updateButtons()
+         })
+
+         input.addEventListener(`blur`, () => {
+            if (!input.value) {
+               input.value = input.min || 0
+            }
+            updateButtons()
+         })
+      })
+   })
+
    // Зірочки
    const stars = document.querySelectorAll('.location__star')
    if (stars.length) {

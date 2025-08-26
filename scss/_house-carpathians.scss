@@ -255,13 +255,18 @@
       @media (max-width: toEm(400)) {
          margin-block-start: toRem(10);
       }
+
+      &:focus-within {
+         border-color: #000;
+         border-radius: toRem(4);
+      }
    }
 
    // .quantity__input
    &__input {
       @include adaptiveValue(padding-inline-start, 15, 10);
       background: #fff;
-
+      outline: none;
       appearance: none;
       -moz-appearance: textfield;
       &::-webkit-inner-spin-button,
@@ -276,29 +281,64 @@
       }
    }
    &__btn {
-      // .quantity__btn--up
-      &--up::before {
+      &::before {
          content: "";
-         background: url(../img/arrow-up1.svg) center / contain no-repeat;
          position: absolute;
          left: 65%;
-         top: 16.4%;
          @include adaptiveValue(width, 12, 8.5);
          aspect-ratio: 12 / 18;
-         cursor: pointer;
+         background-repeat: no-repeat;
+         background-position: center;
+         background-size: contain;
+         pointer-events: none;
+         z-index: 2;
       }
-      // .quantity__btn--down
-      &--down {
-         background: url(../img/arrow-down.svg) center / contain no-repeat;
-         position: absolute;
-         left: 65%;
+
+      &--up::before {
+         top: 16.4%;
+         background-image: url(../img/arrow-up1.svg);
+      }
+
+      &--down::before {
          bottom: 16.4%;
-         @include adaptiveValue(width, 12, 8.5);
+         background-image: url(../img/arrow-down.svg);
+      }
+
+      &::after {
+         content: "";
+         position: absolute;
+         left: 63%;
+         @include adaptiveValue(width, 13, 10);
          aspect-ratio: 12 / 18;
-         cursor: pointer;
+         border-radius: toRem(3);
+         pointer-events: none;
+         z-index: 1;
+         opacity: 0;
+         transition:
+            opacity 0.12s ease,
+            box-shadow 0.12s ease;
+      }
+
+      &--up::after {
+         top: 16.4%;
+      }
+      &--down::after {
+         bottom: 16.4%;
+      }
+
+      &:focus-visible::after {
+         opacity: 1;
+         box-shadow: 0 0 0 2px #000;
+      }
+
+      &:disabled {
+         opacity: 0.4;
+         cursor: default;
+         pointer-events: none;
       }
    }
 }
+
 @media (max-width: toEm(645)) and (min-width: toEm(520)) {
    .flatpickr-calendar {
       left: toRem(15) !important;
