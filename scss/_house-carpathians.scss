@@ -332,7 +332,8 @@
          box-shadow: 0 0 0 2px #000;
       }
 
-      &:disabled {
+      &.is-disabled,
+      &[aria-disabled="true"] {
          opacity: 0.4;
          cursor: default;
          pointer-events: none;

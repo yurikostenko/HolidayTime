@@ -37,10 +37,10 @@ body {
    background: #dcdcdc;
 }
 
-.header__container,
-.back__container {
-   max-width: toRem(1750);
-}
+// .header__container,
+// .back__container {
+//    max-width: toRem(1750);
+// }
 
 [class*="__container--big"] {
    max-width: toRem(1604);

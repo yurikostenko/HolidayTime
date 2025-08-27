@@ -132,15 +132,16 @@ label {
 }
 .header__logo {
   aspect-ratio: 178.451/70;
+  width: 11.1531875rem;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   border-radius: 10.4375rem;
-  overflow: hidden;
 }
 @media (max-width: 29.99875em) {
   .header__logo {
     -ms-flex-negative: 1;
         flex-shrink: 1;
+    width: 8.75rem;
   }
 }
 .header__image {
@@ -148,6 +149,7 @@ label {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  overflow: hidden;
 }
 .header__body {
   display: -webkit-box;
@@ -187,10 +189,10 @@ label {
     transition: right 0.5s ease;
   }
 }
-@media (max-width: 61.99875em) {
+@media (max-width: 29.99875em) {
   .header__menu {
-    top: 5.4375rem;
-    height: calc(100vh - 5.4375rem);
+    top: 4.6875rem;
+    height: calc(100vh - 4.6875rem);
   }
 }
 .header__menu.active {
@@ -1749,6 +1751,10 @@ label {
   background-color: #bdbdc6;
   -webkit-padding-after: 1.875rem;
           padding-block-end: 1.875rem;
+  -webkit-transition: -webkit-box-shadow 0.3s ease;
+  transition: -webkit-box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
 }
 @media (min-width: 94.875em) {
   .location__item {
@@ -1830,6 +1836,10 @@ label {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
+}
+.location__item.highlight {
+  -webkit-box-shadow: 0 0 0 4px #202846;
+          box-shadow: 0 0 0 4px #202846;
 }
 .location__capture {
   aspect-ratio: 485/244;
@@ -3597,7 +3607,7 @@ label {
   -webkit-box-shadow: 0 0 0 2px #000;
           box-shadow: 0 0 0 2px #000;
 }
-.quantity__btn:disabled {
+.quantity__btn.is-disabled, .quantity__btn[aria-disabled=true] {
   opacity: 0.4;
   cursor: default;
   pointer-events: none;
@@ -3924,11 +3934,6 @@ body {
   font-family: "PT Sans", sans-serif;
   color: #202846;
   background: #dcdcdc;
-}
-
-.header__container,
-.back__container {
-  max-width: 109.375rem;
 }
 
 [class*=__container--big] {

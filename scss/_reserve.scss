@@ -141,8 +141,14 @@
       @include adaptiveValue(padding-block-start, 30, 15);
       @include adaptiveValue(padding-inline-start, 103, 15);
       @include adaptiveValue(padding-inline-end, 87, 15);
+
+      transition: box-shadow 0.3s ease;
+
       @media (max-width: toEm(1023.98)) {
          flex-wrap: wrap;
+      }
+      &.highlight {
+         box-shadow: 0 0 0 4px #202846;
       }
    }
    // .location__capture
